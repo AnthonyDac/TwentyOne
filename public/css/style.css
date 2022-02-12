@@ -1,19 +1,18 @@
 body {
   padding: 0;
   margin: 0;
-  background: #f0ead2;
+  background: #f2e9e4;
 }
 body main {
   width: 100%;
 }
 body main .play-zone {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: auto;
-  margin-top: 130px;
   font-family: "Montserrat";
+  margin-top: 150px;
 }
 body main .play-zone .controls {
   display: flex;
@@ -26,20 +25,21 @@ body main .play-zone .controls button {
   border: none;
   border-radius: 10px;
   font-size: 20px;
-  background: #99d98c;
+  background: #4a4e69;
   transition-duration: 0.4s;
+  color: white;
 }
 body main .play-zone .controls button:first-child {
   margin-right: 15px;
-  background: #b56576;
+  background: #9a8c98;
 }
 body main .play-zone .controls button:hover {
-  transform: scale(1.025);
+  transform: scale(1.05);
   transition-duration: 0.4s;
   cursor: pointer;
 }
 body main .play-zone #amount {
-  font-size: 70px;
+  font-size: 90px;
   font-weight: bold;
 }
 body main .play-zone #bankAmount {

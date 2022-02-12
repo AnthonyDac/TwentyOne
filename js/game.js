@@ -19,7 +19,6 @@ function tirage() {
         display();  
     }
 }
-
 function validation() {
     if(totalAmount == 0) {
 
@@ -38,7 +37,6 @@ function validation() {
         }
     }
 }
-
 function restart() {
     fireBlocking = 0;
     validationBlocking = 0;
@@ -61,20 +59,10 @@ document.body.onkeyup = function(e){
         validation();
     }
 }
-
 function display() {
     var counter = document.getElementById("amount");
     counter.innerHTML = totalAmount;
 }
-
-function lose() {
-    var counter = document.getElementById("amount");
-    var validBtn = document.getElementById("validator");
-    validBtn.innerHTML = "Rejouer";
-    counter.innerHTML = "Perdu!";
-    fireBlocking = 1;
-}
-
 function bankPlaying() {
     setTimeout(function() {
         while(bankTotalAmount <= 16) {
@@ -98,12 +86,10 @@ function bankPlaying() {
         partyVerification();
     }, 1000);
 }
-
 function bankDisplay() {
     var counter = document.getElementById("bankAmount");
     counter.innerHTML = bankTotalAmount;
 }
-
 function inialization() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
@@ -149,7 +135,6 @@ function initDisplay() {
     dEquality.innerHTML = tEquality;
     dLost.innerHTML = tLost;
 }
-
 function partyVerification() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
