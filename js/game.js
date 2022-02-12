@@ -73,7 +73,9 @@ function bankPlaying() {
             bankTotalAmount = bankTotalAmount + bankLastNumber;
             bankDisplay();
         }
-        if(bankTotalAmount == 18) {
+        if(totalAmount > 21) {
+        }
+        if(bankTotalAmount == 18 && bankTotalAmount <= totalAmount) {
             bankLastNumber = Math.floor(Math.random() * 7);
             if(bankLastNumber == 0) {
                 bankLastNumber = 1;
@@ -81,11 +83,12 @@ function bankPlaying() {
             bankTotalAmount = bankTotalAmount + bankLastNumber;
             bankDisplay();
         }
-      }, 500);
-    setTimeout(function() {
+        if(bankTotalAmount >= totalAmount && bankTotalAmount <= 21) {
+            bankTotalAmount = bankTotalAmount;
+        }
         partyVerification();
-    }, 1000);
-}
+      }, 500);
+    }
 function bankDisplay() {
     var counter = document.getElementById("bankAmount");
     counter.innerHTML = bankTotalAmount;
