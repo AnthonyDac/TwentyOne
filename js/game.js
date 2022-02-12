@@ -87,8 +87,8 @@ function bankPlaying() {
             bankTotalAmount = bankTotalAmount;
         }
         partyVerification();
-      }, 500);
-    }
+    }, 500);
+}
 function bankDisplay() {
     var counter = document.getElementById("bankAmount");
     counter.innerHTML = bankTotalAmount;
