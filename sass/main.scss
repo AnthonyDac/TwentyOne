@@ -65,6 +65,9 @@ body {
                 &:first-child {
                     margin-right: 35px;
                 }
+                &:nth-child(2) {
+                    margin-right: 35px;  
+                }
             }
         }
     }

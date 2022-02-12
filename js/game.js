@@ -107,34 +107,48 @@ function bankDisplay() {
 function inialization() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
+    var tEquality = localStorage.getItem('totalEquality');
     if(tWins == null) {
         localStorage.setItem('totalWins', 0);
     }
     if(tGames == null) {
         localStorage.setItem('totalGames', 0);
     }
+    if(tEquality == null) {
+        localStorage.setItem('totalEquality', 0);
+        localStorage.setItem('totalGames', 0);
+        localStorage.setItem('totalWins', 0);
+    }
     initDisplay();
 }
 function initDisplay() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
+    var tEquality = localStorage.getItem('totalEquality');
     var dWins = document.getElementById('totalWins');
     var dGames = document.getElementById('totalGames');
+    var dEquality = document.getElementById('totalEquality');
     dGames.innerHTML = tGames;
     dWins.innerHTML = tWins;
+    dEquality.innerHTML = tEquality;
 }
 
 function partyVerification() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
+    var tEquality = localStorage.getItem('totalEquality');
     var bGames = parseInt(tGames);
     var bWins = parseInt(tWins);
+    var bEquality = parseInt(tEquality);
     var shower = document.getElementById("amount");
     if(bankTotalAmount > totalAmount && bankTotalAmount <= 21) {
         shower.innerHTML = "La banque l'emporte!";
     }
     if(bankTotalAmount == totalAmount) {
         shower.innerHTML = "Personne ne gagne..";
+        var nEquality = bEquality + 1;
+        localStorage.setItem('totalEquality', nEquality);
+        initDisplay();
     }
     if(totalAmount > bankTotalAmount && totalAmount <= 21) {
         shower.innerHTML = "Vous avez gagné!";
@@ -153,6 +167,9 @@ function partyVerification() {
     }
     if(bankTotalAmount > 21 && totalAmount > 21) {
         shower.innerHTML = "Personne ne gagne..";
+        var nEquality = bEquality + 1;
+        localStorage.setItem('totalEquality', nEquality);
+        initDisplay();
     }
     var validBtn = document.getElementById("validator");
     validBtn.innerHTML = "Rejouer";

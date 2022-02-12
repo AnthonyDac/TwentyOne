@@ -68,5 +68,8 @@ body footer .stats .stater {
 body footer .stats .stater:first-child {
   margin-right: 35px;
 }
+body footer .stats .stater:nth-child(2) {
+  margin-right: 35px;
+}
 
 /*# sourceMappingURL=style.css.map */
