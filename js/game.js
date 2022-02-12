@@ -108,16 +108,30 @@ function inialization() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
     var tEquality = localStorage.getItem('totalEquality');
+    var tLost = localStorage.getItem('totalLost');
     if(tWins == null) {
+        localStorage.setItem('totalEquality', 0);
+        localStorage.setItem('totalGames', 0);
         localStorage.setItem('totalWins', 0);
+        localStorage.setItem('totalLost', 0);
     }
     if(tGames == null) {
+        localStorage.setItem('totalEquality', 0);
         localStorage.setItem('totalGames', 0);
+        localStorage.setItem('totalWins', 0);
+        localStorage.setItem('totalLost', 0);
     }
     if(tEquality == null) {
         localStorage.setItem('totalEquality', 0);
         localStorage.setItem('totalGames', 0);
         localStorage.setItem('totalWins', 0);
+        localStorage.setItem('totalLost', 0);
+    }
+    if(tLost == null) {
+        localStorage.setItem('totalEquality', 0);
+        localStorage.setItem('totalGames', 0);
+        localStorage.setItem('totalWins', 0);
+        localStorage.setItem('totalLost', 0);
     }
     initDisplay();
 }
@@ -125,24 +139,32 @@ function initDisplay() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
     var tEquality = localStorage.getItem('totalEquality');
+    var tLost = localStorage.getItem('totalLost');
     var dWins = document.getElementById('totalWins');
     var dGames = document.getElementById('totalGames');
     var dEquality = document.getElementById('totalEquality');
+    var dLost = document.getElementById('totalLost');
     dGames.innerHTML = tGames;
     dWins.innerHTML = tWins;
     dEquality.innerHTML = tEquality;
+    dLost.innerHTML = tLost;
 }
 
 function partyVerification() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
     var tEquality = localStorage.getItem('totalEquality');
+    var tLost = localStorage.getItem('totalLost');
     var bGames = parseInt(tGames);
     var bWins = parseInt(tWins);
     var bEquality = parseInt(tEquality);
+    var bLost = parseInt(tLost);
     var shower = document.getElementById("amount");
     if(bankTotalAmount > totalAmount && bankTotalAmount <= 21) {
         shower.innerHTML = "La banque l'emporte!";
+        var nLost = bLost + 1;
+        localStorage.setItem('totalLost', nLost);
+        initDisplay();
     }
     if(bankTotalAmount == totalAmount) {
         shower.innerHTML = "Personne ne gagne..";
@@ -164,6 +186,9 @@ function partyVerification() {
     }
     if(totalAmount > 21) {
         shower.innerHTML = "La banque l'emporte!";
+        var nLost = bLost + 1;
+        localStorage.setItem('totalLost', nLost);
+        initDisplay();
     }
     if(bankTotalAmount > 21 && totalAmount > 21) {
         shower.innerHTML = "Personne ne gagne..";

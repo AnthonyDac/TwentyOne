@@ -71,5 +71,8 @@ body footer .stats .stater:first-child {
 body footer .stats .stater:nth-child(2) {
   margin-right: 35px;
 }
+body footer .stats .stater:nth-child(3) {
+  margin-right: 35px;
+}
 
 /*# sourceMappingURL=style.css.map */
