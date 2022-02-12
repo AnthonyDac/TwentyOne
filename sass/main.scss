@@ -11,7 +11,7 @@ body {
             align-items: center;
             flex-direction: column;
             margin: auto;
-            margin-top: 90px;
+            margin-top: 130px;
             font-family: 'Montserrat';
             .controls {
                 display: flex;
@@ -60,7 +60,8 @@ body {
             bottom: 0;
             left: 0;
             .stater {
-                
+                font-size: 20px;
+                font-family: 'Montserrat';
                 &:first-child {
                     margin-right: 35px;
                 }

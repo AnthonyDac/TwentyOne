@@ -12,7 +12,7 @@ body main .play-zone {
   align-items: center;
   flex-direction: column;
   margin: auto;
-  margin-top: 90px;
+  margin-top: 130px;
   font-family: "Montserrat";
 }
 body main .play-zone .controls {
@@ -60,6 +60,10 @@ body footer .stats {
   position: fixed;
   bottom: 0;
   left: 0;
+}
+body footer .stats .stater {
+  font-size: 20px;
+  font-family: "Montserrat";
 }
 body footer .stats .stater:first-child {
   margin-right: 35px;
