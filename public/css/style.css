@@ -1,0 +1,68 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #f0ead2;
+}
+body main {
+  width: 100%;
+}
+body main .play-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 90px;
+  font-family: "Montserrat";
+}
+body main .play-zone .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body main .play-zone .controls button {
+  padding: 10px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  background: #99d98c;
+  transition-duration: 0.4s;
+}
+body main .play-zone .controls button:first-child {
+  margin-right: 15px;
+  background: #b56576;
+}
+body main .play-zone .controls button:hover {
+  transform: scale(1.025);
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+body main .play-zone #amount {
+  font-size: 70px;
+  font-weight: bold;
+}
+body main .play-zone #bankAmount {
+  font-size: 30px;
+}
+body main .play-zone .banque {
+  font-size: 30px;
+}
+body footer {
+  width: 100%;
+}
+body footer .stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+body footer .stats .stater:first-child {
+  margin-right: 35px;
+}
+
+/*# sourceMappingURL=style.css.map */
