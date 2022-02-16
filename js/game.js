@@ -20,6 +20,11 @@ function tirage() {
     }
 }
 function validation() {
+    var tMise = localStorage.getItem('totalMise');
+    var tMoney = localStorage.getItem('totalMoney');
+    var bMise = parseInt(tMise);
+    var bMoney = parseInt(tMoney);
+    var newSold = 0;
     if(totalAmount == 0) {
 
     }
@@ -35,7 +40,11 @@ function validation() {
         if(validBtn.innerHTML == "Rejouer") {
             restart();
         }
+        newSold = bMoney - bMise;
+        localStorage.setItem('totalMoney', newSold);
+        initDisplay();
     }
+
 }
 function restart() {
     fireBlocking = 0;
@@ -50,6 +59,7 @@ function restart() {
     shower.innerHTML = "";
     bankDisplay();
     initDisplay();
+    miseVerification();
 }
 document.body.onkeyup = function(e){
     if(e.keyCode == 37){
@@ -98,29 +108,55 @@ function inialization() {
     var tGames = localStorage.getItem('totalGames');
     var tEquality = localStorage.getItem('totalEquality');
     var tLost = localStorage.getItem('totalLost');
+    var tMise = localStorage.getItem('totalMise');
+    var tMoney = localStorage.getItem('totalMoney');
     if(tWins == null) {
         localStorage.setItem('totalEquality', 0);
         localStorage.setItem('totalGames', 0);
         localStorage.setItem('totalWins', 0);
         localStorage.setItem('totalLost', 0);
+        localStorage.setItem('totalMise', 50);
+        localStorage.setItem('totalMoney', 1000);
     }
     if(tGames == null) {
         localStorage.setItem('totalEquality', 0);
         localStorage.setItem('totalGames', 0);
         localStorage.setItem('totalWins', 0);
         localStorage.setItem('totalLost', 0);
+        localStorage.setItem('totalMise', 50);
+        localStorage.setItem('totalMoney', 1000);
     }
     if(tEquality == null) {
         localStorage.setItem('totalEquality', 0);
         localStorage.setItem('totalGames', 0);
         localStorage.setItem('totalWins', 0);
         localStorage.setItem('totalLost', 0);
+        localStorage.setItem('totalMise', 50);
+        localStorage.setItem('totalMoney', 1000);
     }
     if(tLost == null) {
         localStorage.setItem('totalEquality', 0);
         localStorage.setItem('totalGames', 0);
         localStorage.setItem('totalWins', 0);
         localStorage.setItem('totalLost', 0);
+        localStorage.setItem('totalMise', 50);
+        localStorage.setItem('totalMoney', 1000);
+    }
+    if(tMise == null) {
+        localStorage.setItem('totalEquality', 0);
+        localStorage.setItem('totalGames', 0);
+        localStorage.setItem('totalWins', 0);
+        localStorage.setItem('totalLost', 0);
+        localStorage.setItem('totalMise', 50);
+        localStorage.setItem('totalMoney', 1000);
+    }
+    if(tMoney == null) {
+        localStorage.setItem('totalEquality', 0);
+        localStorage.setItem('totalGames', 0);
+        localStorage.setItem('totalWins', 0);
+        localStorage.setItem('totalLost', 0);
+        localStorage.setItem('totalMise', 50);
+        localStorage.setItem('totalMoney', 1000);
     }
     initDisplay();
 }
@@ -129,14 +165,30 @@ function initDisplay() {
     var tGames = localStorage.getItem('totalGames');
     var tEquality = localStorage.getItem('totalEquality');
     var tLost = localStorage.getItem('totalLost');
+    var tMise = localStorage.getItem('totalMise');
+    var tMoney = localStorage.getItem('totalMoney');
     var dWins = document.getElementById('totalWins');
     var dGames = document.getElementById('totalGames');
     var dEquality = document.getElementById('totalEquality');
     var dLost = document.getElementById('totalLost');
+    var dMise = document.getElementById('totalMise');
+    var dMoney = document.getElementById('totalMoney')
     dGames.innerHTML = tGames;
     dWins.innerHTML = tWins;
     dEquality.innerHTML = tEquality;
     dLost.innerHTML = tLost;
+    dMise.innerHTML = tMise;
+    dMoney.innerHTML = tMoney;
+}
+
+function winning() {
+    var tMise = localStorage.getItem('totalMise');
+    var tMoney = localStorage.getItem('totalMoney');
+    var bMise = parseInt(tMise);
+    var bMoney = parseInt(tMoney);
+    var newMoney = (bMise * 2);
+    var newTotalMoney = bMoney + newMoney;
+    localStorage.setItem('totalMoney', newTotalMoney);
 }
 function partyVerification() {
     var tWins = localStorage.getItem('totalWins');
@@ -164,12 +216,14 @@ function partyVerification() {
         shower.innerHTML = "Vous avez gagné!";
         var nWins = bWins + 1;
         localStorage.setItem('totalWins', nWins);
+        winning();
         initDisplay();
     }
     if(bankTotalAmount > 21) {
         shower.innerHTML = "Vous avez gagné!";
         var nWins = bWins + 1;
         localStorage.setItem('totalWins', nWins);
+        winning();
         initDisplay();
     }
     if(totalAmount > 21) {
@@ -189,4 +243,45 @@ function partyVerification() {
     var nGames = bGames + 1;
     localStorage.setItem('totalGames', nGames);
     initDisplay();
+}
+
+function setMise(mise) {
+    var tMoney = localStorage.getItem('totalMoney');
+    var bMoney = parseInt(tMoney);
+    if(mise.value > bMoney && bMoney < 1000) {
+        console.log('Cas 1');
+        localStorage.setItem('totalMise', 100);
+        initDisplay();
+    }
+    if(mise.value > bMoney && bMoney < 100) {
+        localStorage.setItem('totalMise', 50);
+        console.log('Cas 2');
+        initDisplay();
+    }
+    if(mise.value <= bMoney) {
+        console.log('Cas 3');
+        localStorage.setItem('totalMise', mise.value);
+        initDisplay();
+    }
+}
+function miseVerification() {
+    var tMise = localStorage.getItem('totalMise');
+    var tMoney = localStorage.getItem('totalMoney');
+    var bMoney = parseInt(tMoney);
+    var bMise = parseInt(tMise);
+    if(bMise > bMoney && bMoney < 1000) {
+        console.log('Cas 1');
+        localStorage.setItem('totalMise', 100);
+        initDisplay();
+    }
+    if(bMise > bMoney && bMoney < 100) {
+        localStorage.setItem('totalMise', 50);
+        console.log('Cas 2');
+        initDisplay();
+    }
+    if(bMise <= bMoney) {
+        console.log('Cas 3');
+        localStorage.setItem('totalMise', mise.value);
+        initDisplay();
+    }
 }

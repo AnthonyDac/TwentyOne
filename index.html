@@ -4,14 +4,25 @@
         <title>Twenty One - Homepage</title>
         <link rel="stylesheet" href="./public/css/style.css">
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-        <script src="https://kit.fontawesome.com/fe0dc174bc.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/df2263792c.js" crossorigin="anonymous"></script>
     </head>
     <body onload="inialization()">
         <header>
-
+            <div class="top">
+                <p>Votre porte-monnaie : <span id="totalMoney">0</span><i class="fas fa-money-bill"></i></p>
+            </div>
         </header>
         <main>
             <div class="play-zone">
+                <div class="mise">
+                    <div class="miser-btn">
+                        <button onclick="setMise(this)"  value=50>Miser : 50</button>
+                        <button onclick="setMise(this)" value=100>Miser : 100</button>
+                        <button onclick="setMise(this)" value=1000>Miser : 1000</button>
+                    </div>
+                    <p>Vous allez miser : <span id="totalMise">50</span><i class="fas fa-money-bill"></i></p>
+                </div>
                 <div id="annonce">
                     
                 </div>
@@ -25,7 +36,10 @@
                 <p>Atteignez ou approchez <b>21</b> sans le dépasser. Miser sur l'échec de la banque peut être une option pour gagner.</p>
                 <p>Vous jouez contre la banque, à 16 elle joue, à 17 elle s'arrête.</p>
                 <br>
-                <i class="fa-solid fa-building-columns"></i><a class="banque">Banque : <b><span id="bankAmount">0</span></b></a>
+                <div class="bank">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <a class="banque">Banque : <b><span id="bankAmount">0</span></b></a>
+                </div>
             </div>
         </main>
         <footer>
