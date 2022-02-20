@@ -35,13 +35,13 @@ function validation() {
             fireBlocking = 1;
             validationBlocking = 1;
             validBtn.innerHTML = "La banque joue..";
+            newSold = bMoney - bMise;
+            localStorage.setItem('totalMoney', newSold);
             bankPlaying();
         }
         if(validBtn.innerHTML == "Rejouer") {
             restart();
         }
-        newSold = bMoney - bMise;
-        localStorage.setItem('totalMoney', newSold);
         initDisplay();
     }
 
@@ -190,6 +190,40 @@ function winning() {
     var newTotalMoney = bMoney + newMoney;
     localStorage.setItem('totalMoney', newTotalMoney);
 }
+
+function equality() {
+    var tMise = localStorage.getItem('totalMise');
+    var tMoney = localStorage.getItem('totalMoney');
+    var bMise = parseInt(tMise);
+    var bMoney = parseInt(tMoney);
+    var newTotalMoney = bMise + bMoney;
+    localStorage.setItem('totalMoney', newTotalMoney);
+}
+
+function regaming() {
+    var tMoney = localStorage.getItem('totalMoney');
+    var bMoney = parseInt(tMoney);
+    if(bMoney < 50) {
+        partyEnding();
+        fireBlocking = 1;
+        validationBlocking = 1;
+    }
+}
+
+function newGame() {
+    var screenEnd = document.getElementById("endScreen");
+    screenEnd.classList.remove('show');
+    localStorage.removeItem('totalMoney');
+    inialization();
+    initDisplay();
+    location.reload();
+}
+
+function partyEnding() {
+    var screenEnd = document.getElementById("endScreen");
+    screenEnd.classList.add('show');
+}
+
 function partyVerification() {
     var tWins = localStorage.getItem('totalWins');
     var tGames = localStorage.getItem('totalGames');
@@ -210,6 +244,7 @@ function partyVerification() {
         shower.innerHTML = "Personne ne gagne..";
         var nEquality = bEquality + 1;
         localStorage.setItem('totalEquality', nEquality);
+        equality();
         initDisplay();
     }
     if(totalAmount > bankTotalAmount && totalAmount <= 21) {
@@ -236,12 +271,14 @@ function partyVerification() {
         shower.innerHTML = "Personne ne gagne..";
         var nEquality = bEquality + 1;
         localStorage.setItem('totalEquality', nEquality);
+        equality();
         initDisplay();
     }
     var validBtn = document.getElementById("validator");
     validBtn.innerHTML = "Rejouer";
     var nGames = bGames + 1;
     localStorage.setItem('totalGames', nGames);
+    regaming();
     initDisplay();
 }
 
@@ -259,7 +296,7 @@ function setMise(mise) {
         initDisplay();
     }
     if(mise.value <= bMoney) {
-        console.log('Cas 3');
+        console.log('Cas 3 soit OK');
         localStorage.setItem('totalMise', mise.value);
         initDisplay();
     }
@@ -280,8 +317,8 @@ function miseVerification() {
         initDisplay();
     }
     if(bMise <= bMoney) {
-        console.log('Cas 3');
-        localStorage.setItem('totalMise', mise.value);
+        console.log('Cas 3 soit Ok');
+        localStorage.setItem('totalMise', tMise);
         initDisplay();
     }
 }

@@ -14,12 +14,16 @@
             </div>
         </header>
         <main>
+            <div class="ending" id="endScreen">
+                <p>Partie terminée</p>
+                <button onclick="newGame()">Relancer une partie</button>
+            </div>
             <div class="play-zone">
                 <div class="mise">
                     <div class="miser-btn">
                         <button onclick="setMise(this)"  value=50>Miser : 50</button>
                         <button onclick="setMise(this)" value=100>Miser : 100</button>
-                        <button onclick="setMise(this)" value=1000>Miser : 1000</button>
+                        <button onclick="setMise(this)" value=500>Miser : 500</button>
                     </div>
                     <p>Vous allez miser : <span id="totalMise">50</span><i class="fas fa-money-bill"></i></p>
                 </div>
@@ -44,10 +48,10 @@
         </main>
         <footer>
             <div class="stats">
-                <p class="stater">Parties jouées : <a id="totalGames">N/A</a></p>
-                <p class="stater">Parties gagnées : <a id="totalWins">N/A</a></p>
-                <p class="stater">Parties à égalité : <a id="totalEquality">N/A</a></p>
-                <p class="stater">Parties perdues : <a id="totalLost">N/A</a></p>
+                <p class="stater">Manches jouées : <a id="totalGames">N/A</a></p>
+                <p class="stater">Manches gagnées : <a id="totalWins">N/A</a></p>
+                <p class="stater">Manches à égalité : <a id="totalEquality">N/A</a></p>
+                <p class="stater">Manches perdues : <a id="totalLost">N/A</a></p>
             </div>
         </footer>
         <script src="./js/game.js"></script>
