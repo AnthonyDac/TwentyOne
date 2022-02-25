@@ -1,0 +1,146 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #f2e9e4;
+}
+body header {
+  width: 100%;
+  font-family: "Montserrat";
+}
+body header .top {
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 20px;
+  margin-right: 15px;
+}
+body header .top i {
+  margin-left: 8px;
+}
+body main {
+  width: 100%;
+}
+body main .play-zone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Montserrat";
+  text-align: center;
+}
+body main .play-zone #annonce {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+body main .play-zone .mise {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
+}
+body main .play-zone .mise .fas {
+  margin-left: 8px;
+}
+body main .play-zone .mise .miser-btn button {
+  margin: 0 5px;
+  background-color: #4a4e69;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 0.6s;
+  padding: 8px;
+  font-family: "Montserrat";
+}
+body main .play-zone .mise .miser-btn button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition-duration: 0.6s;
+}
+body main .play-zone .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body main .play-zone .controls button {
+  padding: 10px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  background: #4a4e69;
+  transition-duration: 0.4s;
+  color: white;
+}
+body main .play-zone .controls button:first-child {
+  margin-right: 15px;
+  background: #9a8c98;
+}
+body main .play-zone .controls button:hover {
+  transform: scale(1.05);
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+body main .play-zone .bank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main .play-zone .bank i {
+  font-size: 25px;
+  margin-right: 8px;
+}
+body main .play-zone #amount {
+  font-size: 50px;
+  font-weight: bold;
+  width: 100%;
+}
+body main .play-zone #bankAmount {
+  font-size: 30px;
+}
+body main .play-zone .banque {
+  font-size: 30px;
+}
+body footer {
+  width: 100%;
+  display: none;
+}
+body footer .stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #9a8c98;
+  z-index: 51;
+}
+body footer .stats .stater {
+  font-size: 20px;
+  font-family: "Montserrat";
+}
+body footer .stats .stater:first-child {
+  margin-right: 35px;
+}
+body footer .stats .stater:nth-child(2) {
+  margin-right: 35px;
+}
+body footer .stats .stater:nth-child(3) {
+  margin-right: 35px;
+}
+
+@keyframes appear {
+  to {
+    opacity: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

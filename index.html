@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Twenty One - Homepage</title>
+        <link rel="stylesheet" href="./public/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/df2263792c.js" crossorigin="anonymous"></script>
+    </head>
+    <body onload="inialization()">
+        <header>
+            <div class="top">
+                <p>Votre porte-monnaie : <span id="totalMoney">0</span><i class="fas fa-money-bill"></i></p>
+            </div>
+        </header>
+        <main>
+            <div class="play-zone">
+                <div class="mise">
+                    <div class="miser-btn">
+                        <button onclick="setMise(this)"  value=100>Miser : 100</button>
+                        <button onclick="setMise(this)" value=250>Miser : 250</button>
+                        <button onclick="setMise(this)" value=500>Miser : 500</button>
+                    </div>
+                    <p>Vous allez miser : <span id="totalMise">0</span><i class="fas fa-money-bill"></i></p>
+                </div>
+                <div id="annonce">
+                    
+                </div>
+                <div>
+                    <p id="amount">0</p>
+                </div>
+                <div class="controls">
+                    <button onclick="tirage()">Lancer</button>
+                    <button id="validator" onclick="validation()">Valider</button>
+                </div>
+                <p>Atteignez ou approchez <b>21</b> sans le dépasser. Miser sur l'échec de la banque peut être une option pour gagner.</p>
+                <p>Vous jouez contre la banque, à 16 elle joue, à 17 elle s'arrête.</p>
+                <br>
+                <div class="bank">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <a class="banque">Banque : <b><span id="bankAmount">0</span></b></a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="stats">
+                <p class="stater">Manches jouées : <a id="totalGames">N/A</a></p>
+                <p class="stater">Manches gagnées : <a id="totalWins">N/A</a></p>
+                <p class="stater">Manches à égalité : <a id="totalEquality">N/A</a></p>
+                <p class="stater">Manches perdues : <a id="totalLost">N/A</a></p>
+            </div>
+        </footer>
+        <script src="./js/game.js"></script>
+    </body>
+</html>
